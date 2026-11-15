@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LPM | Léna Proflik Múzeuma</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #0d0e12;
+    color: #e2e8f0;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    padding: 40px 20px;
+    background-image: 
+        radial-gradient(circle at 50% 0%, rgba(88, 101, 242, 0.15) 0%, transparent 60%),
+        linear-gradient(to bottom, #111318, #07080a);
+}
+
+.museum-header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.museum-header h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    letter-spacing: 2px;
+    color: #f8fafc;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+}
+
+.museum-header p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.gallery-room {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 50px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    justify-items: center;
+}
+
+.exhibit-stand {
+    background: rgba(20, 22, 28, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 35px 25px 30px 25px;
+    width: 100%;
+    max-width: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.exhibit-stand::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: #5865F2;
+    border-radius: 2px;
+    box-shadow: 0 0 15px #5865F2;
+}
+
+.exhibit-stand:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 20px rgba(88, 101, 242, 0.2);
+}
+
+.sculpture-container {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.sculpture-3d {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+    border: 3px solid rgba(255, 255, 255, 0.15);
+}
+
+.sculpture-3d img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.museum-placard {
+    background: #f1f5f9;
+    color: #0f172a;
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    position: relative;
+    border-left: 4px solid #5865F2;
+}
+
+.placard-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #0f172a;
+}
+
+.placard-detail {
+    font-size: 0.95rem;
+    color: #334155;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.placard-detail span.label {
+    font-weight: 600;
+    color: #64748b;
+}
+
+.placard-era {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #cbd5e1;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="museum-header">
+    <h1>LPM | LÉNA Profilok Múzeuma</h1>
+    <p>Az összes Profil amely Léna miatt készült, vagy használatban volt</p>
+</div>
+
+<div class="gallery-room">
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="csaladfakutatas.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Családfakutatás - Ingyenes</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @csaladfakutatas</div>
+            <div class="placard-era">2026. máj. 26. – Máig sem Blockolt, Meglepő</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="star.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Star (1)</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @l0v3.lena.</div>
+            <div class="placard-era">2026. aug. 01. – Máig sem Blockolt, Meglepő</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="star.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Star (2)</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @L0v3.lena</div>
+            <div class="placard-era">2026. aug 18. – 2026. 09. 09.</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="benedek.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Benedek (1)</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @benedek_1334_3881</div>
+            <div class="placard-era">2026. okt. 13. – Még nem volt használva, de nem sokáig!</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="anna.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Anna</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @anna_sweets</div>
+            <div class="placard-era">2026. jún. 08. – Még nem volt használva, de nem sokáig!</div>
+        </div>
+    </div>
+<div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="cherryblossom.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">CherryBlossom💮</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @cherryblossom_345</div>
+            <div class="placard-era">2026. szept. 22. – Még nem volt használva, de nem sokáig!</div>
+        </div>
+    </div>
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="beni.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Benedek (2)</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @benedek_13</div>
+            <div class="placard-era">Sajnos nem tudjuk – Máig sem Blockolt, Meglepő</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="benedek3.png" alt="Profilkép">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Benedek (3)</div>
+            <div class="placard-detail"><span class="label">Felhasználónév:</span> @benedek_1353</div>
+            <div class="placard-era">Sajnos nem tudjuk – Máig sem Blockolt, Meglepő</div>
+        </div>
+    </div>
+
+    <div class="exhibit-stand">
+        <div class="sculpture-container" data-tilt>
+            <div class="sculpture-3d">
+                <img src="new.png" alt="ÚJ">
+            </div>
+        </div>
+        <div class="museum-placard">
+            <div class="placard-title">Még van hely ÚJnak!</div>
+            <div class="placard-era">Ki tudja, mi lesz a következő!</div>
+        </div>
+    </div>
+</div>
+<script>
+const containers = document.querySelectorAll('.sculpture-container');
+
+containers.forEach(container => {
+    const card = container.querySelector('.sculpture-3d');
+
+    container.addEventListener('mousemove', (e) => {
+        const rect = container.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateX = ((y - centerY) / centerY) * -35;
+        const rotateY = ((x - centerX) / centerX) * 35;
+        
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+    });
+
+    container.addEventListener('mouseleave', () => {
+        card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+    });
+});
+</script>
+
+</body>
+</html>
